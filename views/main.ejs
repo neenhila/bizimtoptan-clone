@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bizim Toptan</title>
+  <script src="https://kit.fontawesome.com/f5f3147928.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="./css/main.css">
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- Top side info pages -->
+    <div class="top-info">
+      <div class="top-info-wrapper">
+        <div class="left-side">
+          <a href="/s/sirket-tarihi-ve-is-tanimi">Kurumsal</a>
+          <a href="https://www.biziminvestorrelations.com/default.aspx?f=kurumsal">Yatırımcı İlişkileri</a>
+        </div>
+        <a href="/pages/katalog">E-Katalog</a>
+      </div>
+    </div>
+    <!--- Logo - Search Bar - Login & Shopping Basket-->
+    <div class="search-login-bar">
+      <div class="search-login-bar-wrapper">
+        <img src="./assets/logo.svg" alt="logo" class="logo">
+        <div class="search-input">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Banetti Marka Çeşitleri 500 Gr 6.90 TL">
+          <button type="submit" class="search-button">Ara</button>
+        </div>
+        <div class="login-basket-container">
+          <a href="/login" class="login-a">
+            <i class="fa-solid fa-circle-user"></i>
+            <p>Giriş Yap</p>
+          </a>
+          <div class="on-hover-basket">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <p>Sepetim</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Navigation | Categories | Offers | Deliver -->
+    <div class="navigation-top">
+      <div class="navigation-top-wrapper">
+        <div class="all-categories">
+          <div class="all-categories-left-side">
+            <i class="fa-solid fa-bars"></i>
+            <p>Tüm Kategoriler</p>
+          </div>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <a class="offers" href="/s/online-kampanyalar">
+          <i class="fa-solid fa-bullhorn"></i>
+          <p>Kampanyalar</p>
+        </a>
+        <div class="deliver">
+          <div class="deliver-left-side">
+            <i class="fa-solid fa-truck-fast"></i>
+            <% if(!isKargo && !isTiklaGelsin){ %>
+            <p>Teslimat Yöntemi Seç</p>
+            <% } else if(isKargo){ %>
+            <p>Kargo İle Teslimat</p>
+            <% } else if(isTiklaGelsin) { %>
+            <p>Tıkla Gel Al</p>
+            <% } %>
+            <div class="dropdown-deliver">
+              <div class="kargo">
+                <input type="radio" name="kargo" id="kargo" <% if (isKargo) { %> checked <% } %> onclick="sendDeliveryType({kargo: true, tiklaGelsin: false})">
+                <p>Kargo ile Teslimat</p>
+              </div>
+              <div class="tiklaGelsin">
+                <input type="radio" name="tiklaGelsin" id="tiklaGelsin" <% if (isTiklaGelsin) { %> checked <% } %> onclick="sendDeliveryType({kargo: false, tiklaGelsin: true})">
+                <p>Tıkla Gel Al</p>
+              </div>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- General Slide -->
+    <div id="owl-carousel" class="owl-carousel general-slide">
+      <img src="./assets/general-slide1.webp" alt="" onclick="stopImmediatePropagation(); window.location.replace('/haftanin-yildiz-urunu')">
+      <img src="./assets/general-slide2.webp" alt="" onclick="window.location.replace('/s/mobil-uygulamaya-ozel')">
+      <img src="./assets/general-slide3.webp" alt="" onclick="stopImmediatePropagation(); window.location.replace('/s/akbank')">
+      <img src="./assets/general-slide4.webp" alt="" onclick="stopImmediatePropagation(); window.location.replace('/tikla-gel-al-urunler?deliveryTypeID=<% if(isKargo){ %> 1 <% } else if(isTiklaGelsin){ %> 2 <% } %>')">
+      <img src="./assets/general-slide5.webp" alt="" onclick="stopImmediatePropagation(); window.location.replace('/page')">
+      <img src="./assets/general-slide6.webp" alt="" onclick="stopImmediatePropagation(); window.location.replace('/page')">
+      <img src="./assets/general-slide7.webp" alt="" onclick="stopImmediatePropagation(); window.location.replace('/page')">
+      <img src="./assets/general-slide8.webp" alt="" onclick="stopImmediatePropagation(); window.location.replace('/page')">
+      <img src="./assets/general-slide9.webp" alt="" onclick="stopImmediatePropagation(); window.location.replace('/page')">
+      <img src="./assets/general-slide10.webp" alt="" onclick="stopImmediatePropagation(); window.location.replace('/page')">
+      <img src="./assets/general-slide11.webp" alt="" onclick="stopImmediatePropagation(); window.location.replace('/page')">
+    </div>
+
+
+    <!-- Second Side Products 4 item -->
+    <div class="second-side-4items">
+      <div class="item-container-second-side" id="rotate">
+        <img src="./assets/second_side1.webp" alt="" style="width: 220px; height: 140px;">
+        <img src="./assets/second_side2.webp" alt="" style="width: 220px; height: 140px;">
+        <img src="./assets/second_side3.webp" alt="" style="width: 220px; height: 140px;">
+        <img src="./assets/second_side4.webp" alt="" style="width: 220px; height: 140px;">
+      </div>
+    </div>
+
+    <!-- First Slide Gallery -->
+    <div class="bottom-product-gallery">
+      <div class="title-container">
+        <a id="cokSatanlar" class="titleItem <% if(isCokSatanlar) { %> title-container-a-checked <% } %>">Çok Satanlar</a>
+        <a id="yeniGelenler" class="titleItem <% if(isYeniGelenler) { %> title-container-a-checked <% } %>">Yeni Ürünler</a>
+        <a id="firsatUrunleri" class="titleItem <% if(isFirsatUrunleri) { %> title-container-a-checked <% } %>">Fırsat Ürünleri</a>
+      </div>
+      <div class="left-pagination" id="left-bottom">
+        <i class="fa-solid fa-angle-left"></i>
+      </div>
+      <div class="right-pagination" id="right-bottom">
+        <i class="fa-solid fa-angle-right"></i>
+      </div>
+      <% if(isCokSatanlar) { %>
+      <%- include('./cokSatanlar.ejs') %>
+      <% } else if(isYeniGelenler) { %>
+      <%- include('./yeniGelenler.ejs') %>
+      <% } else if(isFirsatUrunleri) { %>
+      <%- include('./firsatUrunleri.ejs') %>
+      <% } %>
+    </div>
+
+    <!-- Last 4 item png -->
+    <div class="fourth-side-4item">
+      <div class="item-container-4thside">
+        <img src="./assets/4th-side1.webp" alt="" style="width: 220px; height: 140px;">
+        <img src="./assets/4th-side2.webp" alt="" style="width: 220px; height: 140px;">
+        <img src="./assets/4th-side3.webp" alt="" style="width: 220px; height: 140px;">
+        <img src="./assets/4th-side4.webp" alt="" style="width: 220px; height: 140px;">
+      </div>
+    </div>
+
+    <!-- Last gallery -->
+    <div class="bottom-product-gallery-last">
+      <div class="title-container">
+        <p>Bizim Toptan'a Özel</p>
+      </div>
+      <div class="left-pagination-last" id="left-bottom-last">
+        <i class="fa-solid fa-angle-left"></i>
+      </div>
+      <div class="right-pagination-last" id="right-bottom-last">
+        <i class="fa-solid fa-angle-right"></i>
+      </div>
+
+      <%- include('./bizimToptanOzel.ejs') %>
+
+    </div>
+
+    <!-- Burada 2 tane daha slide olmalıydı fakat aynı şeyi tekrarlamak bir şey ifade etmiyor o yüzden yapmadım. -->
+
+
+    <!-- Bottom Navigation Links -->
+    <div class="bottom-navigation">
+      <div class="bottom-navigation-inside">
+        <div class="bottom-navigation-title">
+          Kurumsal
+        </div>
+        <div class="botnav-container">
+          <a class="botnav">Hakkımızda</a>
+          <a class="botnav">Markalarımız</a>
+          <a class="botnav">Bizim Kart</a>
+          <a class="botnav">Müşterilerimiz</a>
+        </div>
+      </div>
+      <div class="bottom-navigation-inside">
+        <div class="bottom-navigation-title">
+
+        </div>
+        <div class="botnav-container">
+          <a class="botnav">İnsan Kaynakları</a>
+          <a class="botnav">İş Başvuru Formu</a>
+          <a class="botnav">Bilgi Toplumu Hizmetleri</a>
+          <a class="botnav">Yatırımcı İlişkileri</a>
+          <a class="botnav">İletişim</a>
+          <a class="botnav">Kumanya Talebi</a>
+        </div>
+      </div>
+      <div class="bottom-navigation-inside">
+        <div class="bottom-navigation-title">
+          Yardım
+        </div>
+        <div class="botnav-container">
+          <a class="botnav">Müşteri Hizmetleri</a>
+          <a class="botnav">SSS</a>
+        </div>
+      </div>
+      <div class="bottom-navigation-inside">
+        <div class="bottom-navigation-title">
+          Yasal
+        </div>
+        <div class="botnav-container">
+          <a class="botnav">İptal & İade</a>
+          <a class="botnav">KVKK</a>
+          <a class="botnav">Çerez Politikası</a>
+          <a class="botnav">Üyelik Sözleşmesi</a>
+          <a class="botnav">İletişim</a>
+          <a class="botnav">Elektronik Ticari İleti İzni</a>
+        </div>
+      </div>
+      <div class="bottom-navigation-inside">
+        <div class="bottom-navigation-title">
+          Hesabım
+        </div>
+        <div class="botnav-container">
+          <a class="botnav">Siparişlerim</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-inside">
+        <div class="left-side-footer">
+          <img src="./assets/yildiz-holding-logo.png" alt="">
+          © 2022
+        </div>
+        <div class="right-side-footer">
+          <p>442 42 96</p>
+          <i class="fa-brands fa-square-whatsapp"></i>
+          <i class="fa-brands fa-square-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+      </div>
+    </div>
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+  function sendDeliveryType(data) {
+    $.ajax({
+      url: "/post",
+      data: JSON.stringify(data),
+      dataType: "json",
+      contentType: "application/json",
+      method: "POST",
+      success: function() {
+        console.log("Success.")
+      }
+
+    })
+    window.location.replace('/');
+  }
+
+  function sendChoosePage(data) {
+    $.ajax({
+      url: "/post",
+      data: JSON.stringify(data),
+      dataType: 'json',
+      contentType: 'application/json',
+      method: "POST",
+      success: function() {
+        console.log("Success")
+      }
+    })
+    setTimeout(() => {
+      window.location.replace('/#rotate');
+      window.location.reload();
+    }, 400)
+  }
+
+  $(document).ready(function() {
+    $('#owl-carousel').owlCarousel({
+      loop: true,
+      direction: 'vertical',
+      autoplay: true,
+      items: 1,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true,
+      infinite: true,
+      rtl: false,
+    });
+  })
+
+  var owl = $("#owl-carousel-bottom").owlCarousel({
+    loop: true,
+    direction: 'vertical',
+    autoplay: false,
+    items: 6,
+    infinite: true,
+    rtl: false,
+    margin: 0
+  })
+  var owl2 = $("#owl-carousel-last").owlCarousel({
+    loop: true,
+    direction: 'vertical',
+    autoplay: false,
+    items: 6,
+    infinite: true,
+    rtl: false,
+    margin: 0
+  })
+  $("#left-bottom-last").click(function() {
+    owl2.trigger("prev.owl.carousel")
+  })
+  $("#right-bottom-last").click(function() {
+    owl2.trigger("next.owl.carousel")
+  })
+  
+  $("#left-bottom").click(function() {
+    owl.trigger("prev.owl.carousel")
+  })
+  $("#right-bottom").click(function() {
+    owl.trigger("next.owl.carousel")
+  })
+
+  $(".titleItem").click(function() {
+    let array = ["yeniGelenler", "cokSatanlar", "firsatUrunleri"];
+    array.forEach(item => {
+      if (item !== this.id) {
+        if (item === "yeniGelenler") {
+          $("#yeniGelenler").removeClass("title-container-a-checked");
+        } else if (item === "cokSatanlar") {
+          $("#cokSatanlar").removeClass("title-container-a-checked");
+
+        } else if (item === "firsatUrunleri") {
+          $("#firsatUrunleri").removeClass("title-container-a-checked");
+        }
+      }
+
+    })
+    $(this).addClass("title-container-a-checked")
+    sendChoosePage({
+      data: this.id
+    })
+  })
+
+
+  $(".heart").click(function() {
+    if ($(this).html() === '<i class="fa-regular fa-heart"></i>') {
+      $(this).html("<i class='fa-solid fa-heart'></i>")
+    } else {
+      $(this).html('<i class="fa-regular fa-heart"></i>')
+    }
+  })
+</script>
+
+</html>
